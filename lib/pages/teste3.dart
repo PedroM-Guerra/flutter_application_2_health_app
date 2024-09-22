@@ -1,17 +1,82 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_2_health_app/pages/app.dart';
 
+/// Flutter code sample for [ListTile].
 
-void main() => runApp(const BottomNavigationBarExampleApp());
+void main() => runApp(const ListTileApp());
 
-class BottomNavigationBarExampleApp extends StatelessWidget {
-  const BottomNavigationBarExampleApp({super.key});
+class ListTileApp extends StatelessWidget {
+  const ListTileApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: BottomNavigationBarExample(),
+    return MaterialApp(
+      theme: ThemeData(useMaterial3: true),
+      home: const ListTileExample(),
+    );
+  }
+}
+
+class ListTileExample extends StatelessWidget {
+  const ListTileExample({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.purple[50],
+        leading: IconButton(
+          onPressed: () {},
+          icon: Icon(Icons.swap_vert),
+        ),
+        title: const Text('Agosto'),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15.0),
+            child: IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.today),
+            ),
+          )
+        ],
+      ),
+      body: ListView(
+        children: const <Widget>[
+          Padding(
+            padding: EdgeInsets.symmetric(vertical: 8.0),
+            child: Card(
+              color: Colors.grey,
+              child: Padding(
+                padding: EdgeInsets.symmetric(vertical: 20.0),
+                child: ListTile(
+                  title: Text(
+                    'Treino - Bicicleta',
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  subtitle: Text('02/08/2024'),
+                  trailing: Icon(Icons.more_vert),
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(vertical: 8.0),
+            child: Card(
+              color: Colors.grey,
+              child: Padding(
+                padding: EdgeInsets.symmetric(vertical: 20.0),
+                child: ListTile(
+                  title: Text(
+                    'Treino - Musculação',
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  subtitle: Text('05/08/2024'),
+                  trailing: Icon(Icons.more_vert),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
