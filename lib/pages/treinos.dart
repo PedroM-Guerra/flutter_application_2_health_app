@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
 
-/// Flutter code sample for [ListTile].
 
-void main() => runApp(const ListTileApp());
+void main() => runApp(const Treinos());
 
-class ListTileApp extends StatelessWidget {
-  const ListTileApp({super.key});
+class Treinos extends StatelessWidget {
+  const Treinos({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(useMaterial3: true),
-      home: const ListTileExample(),
+      home: const TreinosState(),
     );
   }
 }
 
-class ListTileExample extends StatelessWidget {
-  const ListTileExample({super.key});
+class TreinosState extends StatelessWidget {
+  const TreinosState({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -42,11 +42,11 @@ class ListTileExample extends StatelessWidget {
       body: ListView(
         children: <Widget>[
           Padding(
-            padding: EdgeInsets.symmetric(vertical: 8.0),
+            padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 15.0),
             child: Card(
-              color: Colors.grey,
+              color: Color.fromRGBO(218,209,209, 100),
               child: Padding(
-                padding: EdgeInsets.symmetric(vertical: 20.0),
+                padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 15.0),
                 child: ListTile(
                   title: Text(
                     'Treino - Bicicleta',
@@ -59,11 +59,11 @@ class ListTileExample extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: EdgeInsets.symmetric(vertical: 8.0),
+            padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 15.0),
             child: Card(
               color: Colors.grey,
               child: Padding(
-                padding: EdgeInsets.symmetric(vertical: 20.0),
+                padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 15.0),
                 child: ListTile(
                   title: Text(
                     'Treino - Musculação',
