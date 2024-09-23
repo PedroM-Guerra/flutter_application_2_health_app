@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2_health_app/pages/app.dart';
+import 'package:flutter_application_2_health_app/pages/lembretes.dart';
+import 'package:flutter_application_2_health_app/pages/novo_lembrete.dart';
 
 
 
@@ -10,9 +12,13 @@ class BottomNavigationBarExampleApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: BottomNavigationBarExample(),
+      home: App(),
+      routes: {
+        '/novolembrete': (context) => NovoLembrete(),
+        '/lembretes': (context) => App(),
+      },
     );
   }
 }

@@ -3,16 +3,14 @@ import 'package:flutter_application_2_health_app/pages/treinos.dart';
 import 'package:flutter_application_2_health_app/pages/lembretes.dart';
 import 'package:flutter_application_2_health_app/pages/perfil.dart';
 
-class BottomNavigationBarExample extends StatefulWidget {
-  const BottomNavigationBarExample({super.key});
+class App extends StatefulWidget {
+  const App({super.key});
 
   @override
-  State<BottomNavigationBarExample> createState() =>
-      _BottomNavigationBarExampleState();
+  State<App> createState() => _AppState();
 }
 
-class _BottomNavigationBarExampleState
-    extends State<BottomNavigationBarExample> {
+class _AppState extends State<App> {
   int _selectedIndex = 0;
   String titulo = 'Treinos';
   static const TextStyle optionStyle =
@@ -56,7 +54,9 @@ class _BottomNavigationBarExampleState
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15.0),
             child: IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, '/novolembrete');
+              },
               icon: Icon(Icons.add),
             ),
           )
