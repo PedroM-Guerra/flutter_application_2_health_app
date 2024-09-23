@@ -1,37 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2_health_app/pages/treinos.dart';
-import 'package:flutter_application_2_health_app/pages/lembretes.dart';
-import 'package:flutter_application_2_health_app/pages/perfil.dart';
 
-
-class BottomNavigationBarExample extends StatefulWidget {
-  const BottomNavigationBarExample({super.key});
+class AppbarTreinos extends StatefulWidget {
+  const AppbarTreinos({super.key});
 
   @override
-  State<BottomNavigationBarExample> createState() =>
-      _BottomNavigationBarExampleState();
+  State<AppbarTreinos> createState() => _AppState();
 }
 
-class _BottomNavigationBarExampleState
-    extends State<BottomNavigationBarExample> {
-  int _selectedIndex = 0;
-  static const TextStyle optionStyle =
-  TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-
-  //CONTINUAR AQUI: FAZER PRIMEIRO INDEX SER TREINOS.DART, DEPOIS AJEITAR TREINOS.DART
-  static const List<Widget> _widgetOptions = <Widget>[
-    Treinos(),
-    Lembretes(),
-    Perfil(),
-
-  ];
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
-
+class _AppState extends State<AppbarTreinos> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,13 +16,15 @@ class _BottomNavigationBarExampleState
       appBar: AppBar(
         //elevation: 15,
         backgroundColor: Colors.purple[50],
-        title: Text('Treinos'),
+        title: const Text('Treinos'),
         actions: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15.0),
             child: IconButton(
-              onPressed: () {},
-              icon: Icon(Icons.add),
+              onPressed: () {
+                Navigator.pushNamed(context, '/novotreino');
+              },
+              icon: const Icon(Icons.add),
             ),
           )
         ],
@@ -78,8 +57,8 @@ class _BottomNavigationBarExampleState
           ],
         ),
       ),
-      body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
+      body: const Center(
+        child: Treinos(),
       ),
     );
   }

@@ -33,7 +33,7 @@ class _NovoLembreteState extends State<NovoLembrete> {
       appBar: AppBar(
         //elevation: 15,
         backgroundColor: Colors.purple[50],
-        title: Text('Novo Lembrete'),
+        title: const Text('Novo Lembrete'),
         actions: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15.0),
@@ -41,42 +41,44 @@ class _NovoLembreteState extends State<NovoLembrete> {
               onPressed: () {
                 Navigator.pop(context);
               },
-              icon: Icon(Icons.check),
+              icon: const Icon(Icons.check),
             ),
           )
         ],
       ),
       body: ListView(
         children: <Widget>[
-          Padding(
+          const Padding(
             padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 15.0),
             child: Card(
               color: Color.fromRGBO(218, 209, 209, 100),
               child: Padding(
-                  padding:
-                      EdgeInsets.symmetric(vertical: 20.0, horizontal: 20.0),
-                  child: TextField(
-                    decoration: InputDecoration(
-                      border: InputBorder.none,
-                      labelText: 'Nome do Lembrete',
-                      alignLabelWithHint: false,
-                    ),
-                  )),
+                padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 20.0),
+                child: TextField(
+                  decoration: InputDecoration(
+                    border: InputBorder.none,
+                    labelText: 'Nome do Lembrete',
+                    alignLabelWithHint: false,
+                  ),
+                ),
+              ),
             ),
           ),
           Padding(
-            padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 15.0),
+            padding:
+                const EdgeInsets.symmetric(vertical: 8.0, horizontal: 15.0),
             child: Card(
-              color: Color.fromRGBO(218, 209, 209, 100),
+              color: const Color.fromRGBO(218, 209, 209, 100),
               child: Padding(
-                padding: EdgeInsets.symmetric(vertical: 2.0, horizontal: 2.0),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 2.0, horizontal: 2.0),
                 child: TimePickerSpinner(
                   locale: const Locale('en', ''),
                   time: dateTime,
                   is24HourMode: false,
                   isShowSeconds: false,
                   itemHeight: 80,
-                  normalTextStyle: TextStyle(
+                  normalTextStyle: const TextStyle(
                     fontSize: 20,
                     color: Colors.grey,
                   ),
@@ -84,31 +86,35 @@ class _NovoLembreteState extends State<NovoLembrete> {
                       const TextStyle(fontSize: 24, color: Colors.black),
                   isForce2Digits: true,
                   onTimeChange: (time) {
-                    setState(() {
-                      dateTime = time;
-                    });
+                    setState(
+                      () {
+                        dateTime = time;
+                      },
+                    );
                   },
                 ),
               ),
             ),
           ),
           Padding(
-            padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 15.0),
+            padding:
+                const EdgeInsets.symmetric(vertical: 20.0, horizontal: 15.0),
             child: SelectWeekDays(
-                fontSize: 14,
-                fontWeight: FontWeight.w500,
-                selectedDaysFillColor: Colors.purple[50],
-                unSelectedDayTextColor: Colors.black,
-                days: _days,
-                border: false,
-                width: MediaQuery.of(context).size.width / 1.4,
-                boxDecoration: BoxDecoration(
-                  color: Color.fromRGBO(218, 209, 209, 100),
-                  borderRadius: BorderRadius.circular(12.0),
-                ),
-                onSelect: (values) {
-                  print(values);
-                }),
+              fontSize: 14,
+              fontWeight: FontWeight.w500,
+              selectedDaysFillColor: Colors.purple[50],
+              unSelectedDayTextColor: Colors.black,
+              days: _days,
+              border: false,
+              width: MediaQuery.of(context).size.width / 1.4,
+              boxDecoration: BoxDecoration(
+                color: const Color.fromRGBO(218, 209, 209, 100),
+                borderRadius: BorderRadius.circular(12.0),
+              ),
+              onSelect: (values) {
+                //print(values);
+              },
+            ),
           ),
         ],
       ),

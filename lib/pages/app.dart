@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_2_health_app/pages/treinos.dart';
-import 'package:flutter_application_2_health_app/pages/lembretes.dart';
-import 'package:flutter_application_2_health_app/pages/perfil.dart';
+import 'lembretes.dart';
+import 'perfil.dart';
+import 'appbar_treinos.dart';
 
 class App extends StatefulWidget {
   const App({super.key});
@@ -13,21 +13,20 @@ class App extends StatefulWidget {
 class _AppState extends State<App> {
   int _selectedIndex = 0;
   String titulo = 'Treinos';
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
 
-  //CONTINUAR AQUI: FAZER PRIMEIRO INDEX SER TREINOS.DART, DEPOIS AJEITAR TREINOS.DART
   static const List<Widget> _widgetOptions = <Widget>[
-    Treinos(),
+    AppbarTreinos(),
     Lembretes(),
     Perfil(),
   ];
 
   void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-      tituloPagina(index);
-    });
+    setState(
+      () {
+        _selectedIndex = index;
+        tituloPagina(index);
+      },
+    );
   }
 
   void tituloPagina(int index) {
@@ -46,22 +45,6 @@ class _AppState extends State<App> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white70,
-      appBar: AppBar(
-        //elevation: 15,
-        backgroundColor: Colors.purple[50],
-        title: Text(titulo),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15.0),
-            child: IconButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/novolembrete');
-              },
-              icon: Icon(Icons.add),
-            ),
-          )
-        ],
-      ),
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
@@ -98,20 +81,23 @@ class _AppState extends State<App> {
         //elevation: 15,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.directions_walk),
+            icon: Icon(Icons.directions_walk_outlined),
+            activeIcon: Icon(Icons.directions_walk),
             label: 'Treinos',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.notifications),
+            icon: Icon(Icons.notifications_none),
+            activeIcon: Icon(Icons.notifications),
             label: 'Lembretes',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
+            icon: Icon(Icons.person_outline),
+            activeIcon: Icon(Icons.person),
             label: 'Perfil',
           ),
         ],
         currentIndex: _selectedIndex,
-        //selectedItemColor: Colors.purple[400],
+        //selectedItemColor: Colors.deepPurpleAccent[100],
         onTap: _onItemTapped,
       ),
     );
